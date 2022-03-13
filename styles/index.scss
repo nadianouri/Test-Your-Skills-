@@ -1,7 +1,8 @@
 // colors
 
-$body-font-color : #ffff;
+$body-font-color : #E8E8E8;
 $main-color      :#5474FD;
+$hover-color     : #5c374c;
 
 //fonts 
 $body-font: 'Josefin Sans',
@@ -13,13 +14,13 @@ $sub-text__font: 'Aleo',
 serif;
 
 * {
-    box-sizing: border-box;
-    color     : $body-font-color;
-    font-size : $body-font-size;
-    font-family: 'Josefin Sans',
-        sans-serif;
-    margin : 0px;
-    padding: 0px;
+    box-sizing : border-box;
+    color      : $body-font-color;
+    font-size  : $body-font-size;
+    font-family: $body-font;
+    line-height: 26px;
+    margin     : 0px;
+    padding    : 0px;
 }
 
 header {
@@ -50,12 +51,14 @@ header {
         margin-top      : 48px;
 
         input {
-            width         : 70%;
-            height        : auto;
-            border        : none;
-            font-size     : $sub-text-font;
-            text-align    : center;
-            text-transform: capitalize;
+            width           : 70%;
+            height          : auto;
+            border          : none;
+            font-size       : $sub-text-font;
+            text-align      : center;
+            text-transform  : capitalize;
+            min-height      : 60px;
+            background-color: $body-font-color;
 
         }
 
@@ -79,6 +82,22 @@ header {
                 margin-left: 10px;
                 cursor     : pointer;
 
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 820px) {
+        form {
+            margin-top: 20px;
+
+            input {
+                width    : 100%;
+                font-size: 12px;
+            }
+
+            button {
+                display: none;
             }
         }
 
@@ -160,17 +179,19 @@ header {
             cursor         : pointer;
 
             &:hover {
-                color: #5c374c;
+                color: $hover-color;
             }
 
 
         }
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 820px) {
         nav {
             justify-content: space-between;
-            margin-top     : 10px;
+            margin         : 0px;
+            position       : fixed;
+            top            : 0;
 
             .logo {
                 font-size  : 30px;
@@ -261,6 +282,13 @@ header {
         text-transform  : capitalize;
         font-family     : $sub-text__font;
         grid-area       : 9 / 2 / 10 / 3;
+
+        &:hover {
+            background-color: $hover-color;
+            cursor          : pointer;
+
+
+        }
     }
 
     .sect-sea {
@@ -272,7 +300,45 @@ header {
         grid-area: 6 / 5 / 8 / 7;
 
     }
+
+    @media screen and (max-width: 820px) {
+
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-around;
+        align-items    : center;
+
+
+        h3 {
+            font-size : $text-font-size;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size  : 16px;
+            padding    : 5px 5px 5px 10px;
+            text-indent: 5px;
+        }
+
+        .sect-sea {
+            width: fit-content;
+        }
+
+        .sect-mountain {
+            display: none;
+        }
+
+        button {
+            width : 70%;
+            height: 50px;
+
+        }
+
+    }
+
 }
+
 
 .sect-two {
     width           : 99%;
@@ -320,13 +386,275 @@ header {
         text-transform : capitalize;
         font-family    : $sub-text__font;
     }
+
+    @media screen and (max-width: 820px) {
+        height    : 200px;
+        min-height: 140px;
+
+        .sect-two__icons {
+            .sect-two__images {
+                width : 40px;
+                height: 40px;
+            }
+        }
+
+        .sect-two__paragraphs {
+            margin-top: 15px;
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
 }
 
-.sect-three {
-    background-image: url('/images/image_5.png');
+.sect-three,
+.sect-four {
+    background-image     : url('/images/image_5.png');
+    width                : 99%;
+    max-height           : 700px;
+    height               : 100vh;
+    margin               : auto;
+    display              : grid;
+    grid-template-columns: 23% 50% 27%;
+    grid-template-rows   : 30% 70%;
+
+    .sect-three__container {
+        width          : 80%;
+        max-height     : 374px;
+        height         : 100%;
+        background     : rgba(black, 0.7);
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-around;
+        grid-area      : 2 / 2 / 3 / 3;
+        padding        : 32px;
+
+        .sect-three__para-1,
+        .sect-three__para-2 {
+            font-size: 20px;
+
+        }
+
+        .sect-three__para-3 {
+
+            width      : 100%;
+            min-width  : 508px;
+            height     : 78px;
+            line-height: 26px;
+
+
+        }
+
+        button {
+            width           : 100%;
+            max-width       : 228px;
+            min-height      : 63px;
+            border          : none;
+            background-color: $main-color;
+            text-align      : center;
+            text-transform  : capitalize;
+            font-family     : $sub-text__font;
+
+            &:hover {
+                background-color: $hover-color;
+                cursor          : pointer;
+            }
+        }
+    }
+
+    @media screen and (max-width: 820px) {
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-around;
+        max-height     : 450px;
+        align-items    : center;
+
+        .sect-three__container {
+
+            .sect-three__para-3 {
+                width      : 100%;
+                min-width  : 230px;
+                line-height: 20px;
+            }
+
+            p {
+                min-width  : 200px;
+                width      : 100%;
+                font-size  : 14px;
+                padding    : 5px 5px 5px 5px;
+                text-indent: 5px;
+            }
+
+            button {
+                margin    : auto;
+                margin-top: 85px;
+                width     : 70%;
+            }
+
+
+        }
+
+    }
+
+}
+
+.sect-four {
+    background-image     : url('../images/image_6.png');
+    grid-template-columns: 50% 50%;
+}
+
+.sect-five {
+    width                : 99%;
+    max-height           : 685px;
+    height               : 100vh;
+    margin               : auto;
+    background-image     : url('/images/image_7.png');
+    display              : grid;
+    grid-template-rows   : repeat(5, 20%);
+    grid-template-columns: 10% 30% 1% 10% 45% 10%;
+
+
+    h2 {
+        font-size     : 36px;
+        text-transform: capitalize;
+        grid-area     : 2 / 4 / 3 /6;
+    }
+
+    img {
+        grid-area : 3 / 2 / 5 / 4;
+        object-fit: cover;
+        width     : 100%;
+        min-height: 287px;
+    }
+
+    div {
+        grid-area       : 3 / 4 / 5 / 6;
+        background-color: #333333;
+        padding         : 15px;
+        max-width       : 668px;
+        width           : 100%;
+        min-height      : 287px;
+
+        h5 {
+            font-size     : $text-font-size;
+            text-transform: uppercase;
+        }
+
+        p {
+            width      : 100%;
+            min-width  : 581px;
+            height     : 165px;
+            line-height: 26px;
+        }
+
+        i {
+            color    : $main-color;
+            font-size: 36px;
+        }
+    }
+
+    @media screen and (max-width: 820px) {
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-around;
+        max-height     : 570px;
+        align-items    : center;
+
+        h2 {
+            font-size : $text-font-size;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        img {
+            margin-top: 20px;
+            min-height: 130px;
+        }
+
+        div {
+            background: transparent;
+            min-height: 200px;
+
+            h5 {
+                font-size: 12px;
+
+            }
+
+            p {
+
+                min-width  : 300px;
+                height     : 180px;
+                line-height: 18px;
+            }
+
+            i {
+                font-size: 20px;
+            }
+        }
+
+    }
+}
+
+footer {
     width           : 99%;
-    max-height      : 700px;
-    height          : 100vh;
+    min-height      : 271px;
+    height          : 100%;
     margin          : auto;
+    background-color: #333333;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    padding-top     : 40px;
+
+    h2 {
+        font-size     : 24px;
+        text-transform: uppercase;
+
+    }
+
+    p {
+        text-transform: capitalize;
+        margin-top    : 20px;
+
+    }
+
+    div {
+        width          : 100%;
+        display        : flex;
+        flex-direction : row;
+        justify-content: center;
+        margin-top     : 20px;
+
+
+        i {
+            margin-right: 15px;
+
+            &:hover {
+                color : $main-color;
+                cursor: pointer;
+            }
+
+            &:focus {
+                color: #5474FD;
+            }
+
+        }
+
+    }
+
+    @media screen and (max-width: 820px) {
+        min-height: 190px;
+
+        h2 {
+            font-size: 18px;
+
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
 
 }
